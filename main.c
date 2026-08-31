@@ -19,7 +19,10 @@ int	main(void)
 	b = ft_new_node(6);
 	bs = ft_new_node(5);
 	ft_add_back(&b, bs);
-
+	printf("%f\n",compute_disorder(a));
+	printf("%f\n",compute_disorder(b));
+	assign_indexes(b);
+	printf("%d\n", bs->index);
 	sa(&a);
 	rra(&a);
 	sa(&a);

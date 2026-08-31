@@ -6,7 +6,7 @@
 /*   By: saydilek <saydilek@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 03:04:07 by saydilek          #+#    #+#             */
-/*   Updated: 2026/08/31 06:53:01 by saydilek         ###   ########.fr       */
+/*   Updated: 2026/08/31 07:55:00 by saydilek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h> //delete
-
+//HER FUNCTIONIN BASINA FT YAZ NOLUR NOOLMAZ
 
 typedef struct s_stack
 {
 	int				value;
+	int				index;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -47,5 +48,7 @@ int reverse_rotate(t_stack **stack);
 void sa(t_stack **a);
 void sb(t_stack **b);
 void ss(t_stack **a, t_stack **b);
+double compute_disorder(t_stack* stack);
+void assign_indexes(t_stack *stack);
 
 #endif
