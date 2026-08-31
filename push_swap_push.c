@@ -1,57 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_instructions1.c                          :+:      :+:    :+:   */
+/*   push_swap_push.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saydilek <saydilek@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 03:38:25 by saydilek          #+#    #+#             */
-/*   Updated: 2026/08/31 06:25:04 by saydilek         ###   ########.fr       */
+/*   Updated: 2026/08/31 06:54:49 by saydilek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push(t_stack **dest, t_stack **src)
+int push(t_stack **dest, t_stack **src)
 {
 	t_stack* tmp;
 
 	if (!dest || !src || !*src)
-		return ;
+		return (0);
 	
 	tmp = *src;
 	*src = (*src)->next;
 
 	ft_add_front(dest, tmp);
+	return (1);
 }
 
-void rotate(t_stack **stack)
+void pa(t_stack **a, t_stack **b)
 {
-	t_stack *tmp;
-	
-	if (!stack || !*stack || !(*stack)->next)
-		return ;
-	tmp = *stack;
-	*stack = (*stack)->next;
-	tmp->next = NULL;
-	ft_add_back(stack,tmp);
+	if(push(a, b))
+		write(1, "pa\n", 3);
 }
 
-void reverse_rotate(t_stack **stack)
+void pb(t_stack **b, t_stack **a)
 {
-	t_stack *last;
-	t_stack *prev;
-
-	if (!stack || !*stack || !(*stack)->next)
-		return ;
-	last = *stack;
-	prev = NULL;
-	while(last->next)
-	{
-		prev = last;
-		last = last->next;
-	}
-	prev->next = NULL;
-	last->next = *stack;
-	*stack = last;
+	if(push(b, a))
+		write(1, "pb\n", 3);
 }

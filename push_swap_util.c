@@ -6,7 +6,7 @@
 /*   By: saydilek <saydilek@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 03:06:44 by saydilek          #+#    #+#             */
-/*   Updated: 2026/08/31 03:25:11 by saydilek         ###   ########.fr       */
+/*   Updated: 2026/08/31 06:55:46 by saydilek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,16 @@ int ft_lstsize(t_stack *stack)
 		i++;
 	}
 	return i;
+}
+
+void print_stack(t_stack *stack)
+{
+	char c;
+	while(stack)
+	{
+		c = stack->value + '0';
+		write(1, &c, 1);
+		write(1, "\n", 1);
+		stack = stack->next;
+	}
 }
