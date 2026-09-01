@@ -6,7 +6,7 @@
 /*   By: fguloglu <fguloglu@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 17:57:57 by fguloglu          #+#    #+#             */
-/*   Updated: 2026/09/01 21:37:08 by fguloglu         ###   ########.fr       */
+/*   Updated: 2026/09/02 01:56:41 by fguloglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,46 @@ static int	ft_atol(const char *str, t_stack **stack, char **matrix)
 	return (result * number);
 }
 
-static void check_duplicate(t_stack **stack, char **matrix,)
+static void	check_duplicate(t_stack **stack, int number, char **matrix)
 {
-	t_stack *tmp;
-	int number;
+	t_stack	*tmp;
+
+	if (!stack || !*stack)
+		return ;
+	tmp = *stack;
 	while (tmp)
 	{
-		tmp->value == number;
+		if (tmp->value == number)
+			error_exit(stack, matrix);
+		tmp = tmp->next;
 	}
-	
+}
+
+void	parse_args(int argc, char **argv, t_stack **a)
+{
+	int		i;
+	int		j;
+	char	**matrix;
+	int		num;
+	t_stack	*new_node;
+
+	i = 0;
+	while (++i < argc)
+	{
+		matrix = ft_split(argv[i], ' ');
+		if (!matrix || !matrix[0])
+			error_exit(a, matrix);
+		j = 0;
+		while (matrix[j])
+		{
+			num = ft_atol(matrix[j], a, matrix);
+			check_duplicate(a, num, matrix);
+			new_node = ft_new_node(num);
+			if (!new_node)
+				error_exit(a, matrix);
+			ft_add_back(a, new_node);
+			j++;
+		}
+		free_matrix(matrix);
+	}
 }
