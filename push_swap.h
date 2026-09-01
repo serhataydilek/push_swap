@@ -6,7 +6,7 @@
 /*   By: fguloglu <fguloglu@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 03:04:07 by saydilek          #+#    #+#             */
-/*   Updated: 2026/09/01 17:57:29 by fguloglu         ###   ########.fr       */
+/*   Updated: 2026/09/02 02:00:33 by fguloglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ char	**ft_split(char const *s, char c); //Benim eklediklerim
 void	free_matrix(char **matrix);
 void	free_stack(t_stack **stack);
 void	error_exit(t_stack **stack, char **matrix);
+void	parse_args(int argc, char **argv, t_stack **a);
 
 #endif
