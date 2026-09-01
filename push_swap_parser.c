@@ -40,7 +40,7 @@ static int	ft_atol(const char *str, t_stack **stack, char **matrix)
 	return (result * number);
 }
 
-static void check_duplicate(t_stack **stack, char **matrix,)
+static void check_duplicate(t_stack **stack, char **matrix)
 {
 	t_stack *tmp;
 	int number;

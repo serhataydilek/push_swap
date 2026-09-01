@@ -23,14 +23,15 @@ int	main(void)
 	printf("%f\n",compute_disorder(b));
 	assign_indexes(b);
 	printf("%d\n", bs->index);
-	sa(&a);
-	rra(&a);
-	sa(&a);
-	pa(&a, &b);
-	pa(&a, &b);
-	ra(&a);
-	ra(&a);
+	radix_sort(&a, &b);
+	// sa(&a);
+	// rra(&a);
+	// sa(&a);
+	// pa(&a, &b);
+	// pa(&a, &b);
+	// ra(&a);
+	// ra(&a);
 	print_stack(a);
-	print_stack(b);
+	//print_stack(b);
 	return (0);
 }
