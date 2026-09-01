@@ -2,36 +2,40 @@
 
 int	main(void)
 {
-	t_stack *a;
-	t_stack *second;
-	t_stack *third;
-	t_stack *forth;
-	a = ft_new_node(3);
-	second = ft_new_node(1);
-	third = ft_new_node(4);
-	forth = ft_new_node(2);
-	ft_add_back(&a, second);
-	ft_add_back(&a, third);
-	ft_add_back(&a, forth);
+	t_stack	*a;
+	t_stack	*b;
+	t_stack	*new;
+	int		values[100];
+	int		i;
 
-	t_stack *b;
-	t_stack *bs;
-	b = ft_new_node(6);
-	bs = ft_new_node(5);
-	ft_add_back(&b, bs);
-	printf("%f\n",compute_disorder(a));
-	printf("%f\n",compute_disorder(b));
-	assign_indexes(b);
-	printf("%d\n", bs->index);
+	int temp[100] = {
+		42, 7, 93, 15, 68, 2, 81, 34, 56, 99,
+		21, 73, 11, 64, 5, 88, 39, 27, 71, 50,
+		1, 97, 44, 18, 76, 32, 60, 9, 85, 24,
+		67, 13, 91, 48, 3, 79, 36, 54, 100, 20,
+		72, 10, 63, 6, 87, 38, 26, 70, 49, 17,
+		96, 43, 75, 31, 59, 8, 84, 23, 66, 12,
+		90, 47, 4, 78, 35, 53, 98, 19, 69, 28,
+		74, 14, 62, 86, 37, 25, 46, 16, 95, 30,
+		58, 83, 22, 65, 89, 45, 77, 33, 52, 94,
+		29, 57, 82, 41, 61, 92, 40, 55, 80, 51
+	};
+
+	i = 0;
+	while (i < 100)
+	{
+		values[i] = temp[i];
+		i++;
+	}
+	a = NULL;
+	b = NULL;
+	i = 0;
+	while (i < 100)
+	{
+		new = ft_new_node(values[i]);
+		ft_add_back(&a, new);
+		i++;
+	}
 	radix_sort(&a, &b);
-	// sa(&a);
-	// rra(&a);
-	// sa(&a);
-	// pa(&a, &b);
-	// pa(&a, &b);
-	// ra(&a);
-	// ra(&a);
-	print_stack(a);
-	//print_stack(b);
 	return (0);
 }
