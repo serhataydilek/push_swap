@@ -25,8 +25,10 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-
-
+void assign_indexes(t_stack *stack);
+int get_max_bits(t_stack *stack);
+void	radix_pass(t_stack **a, t_stack **b, int bit);
+void radix_sort(t_stack **a, t_stack **b);
 void sa(t_stack **stack);
 int ft_lstsize(t_stack *stack);
 void	ft_add_front(t_stack **stack, t_stack *new);

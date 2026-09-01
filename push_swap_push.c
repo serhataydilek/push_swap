@@ -21,7 +21,7 @@ int push(t_stack **dest, t_stack **src)
 	
 	tmp = *src;
 	*src = (*src)->next;
-
+	tmp->next = NULL;
 	ft_add_front(dest, tmp);
 	return (1);
 }
