@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saydilek <saydilek@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: fguloglu <fguloglu@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 03:04:07 by saydilek          #+#    #+#             */
-/*   Updated: 2026/08/31 07:55:00 by saydilek         ###   ########.fr       */
+/*   Updated: 2026/09/01 17:57:29 by fguloglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,9 @@ void sb(t_stack **b);
 void ss(t_stack **a, t_stack **b);
 double compute_disorder(t_stack* stack);
 void assign_indexes(t_stack *stack);
+char	**ft_split(char const *s, char c); //Benim eklediklerim
+void	free_matrix(char **matrix);
+void	free_stack(t_stack **stack);
+void	error_exit(t_stack **stack, char **matrix);
 
 #endif
