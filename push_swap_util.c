@@ -19,6 +19,7 @@ t_stack	*ft_new_node(int value)
 	node = malloc(sizeof(t_stack));
 	if (!node)
 		return (NULL);
+	node->index = 0;
 	node->value = value;
 	node->next = NULL;
 	return (node);

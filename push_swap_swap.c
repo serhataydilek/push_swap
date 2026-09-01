@@ -41,6 +41,11 @@ void sb(t_stack **b)
 
 void ss(t_stack **a, t_stack **b)
 {
-	if(swap(a) && swap(b))
+	int x;
+	int y;
+
+	x = swap(a);
+	y = swap(b); 
+	if(x || y)
 		write(1, "ss\n", 3);
 }

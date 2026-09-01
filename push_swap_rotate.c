@@ -39,6 +39,11 @@ void rb(t_stack **b)
 
 void rr(t_stack **a, t_stack **b)
 {
-	if(rotate(a) && rotate(b))
+	int x;
+	int y;
+
+	x = rotate(a);
+	y = rotate(b);
+	if(x || y)
 		write(1, "rr\n", 3);
 }

@@ -46,6 +46,11 @@ void rrb(t_stack **b)
 
 void rrr(t_stack **a, t_stack** b)
 {
-	if(reverse_rotate(a) && reverse_rotate(b))
+	int x;
+	int y;
+
+	x = reverse_rotate(a);
+	y = reverse_rotate(b);
+	if(x || y)
 		write(1, "rrr\n", 4);
 }

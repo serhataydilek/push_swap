@@ -30,6 +30,33 @@ void assign_indexes(t_stack *stack)
 				index++;
 			y = y->next;
 		}
+		x->index = index;
 		x = x->next;
 	}
+}
+
+int get_max_bits(t_stack *stack)
+{
+	int max;
+	int bits;
+
+	max = 0;
+	bits = 0;
+	while (stack)
+	{
+		if(stack->index > max)
+			max = stack->index;
+		stack = stack->next;
+	}
+	while(max != 0)
+	{
+		max = max >> 1;
+		bits++;
+	}
+	return bits;
+}
+
+void	radix_pass(t_stack **a, t_stack **b, int bit)
+{
+	
 }
