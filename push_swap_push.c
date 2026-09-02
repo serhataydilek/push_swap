@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_push.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saydilek <saydilek@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: fguloglu <fguloglu@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 03:38:25 by saydilek          #+#    #+#             */
-/*   Updated: 2026/08/31 06:54:49 by saydilek         ###   ########.fr       */
+/*   Updated: 2026/09/02 18:22:46 by fguloglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,19 @@ int push(t_stack **dest, t_stack **src)
 
 void pa(t_stack **a, t_stack **b)
 {
-	if(push(a, b))
+	if (push(a, b))
+	{
 		write(1, "pa\n", 3);
+		count_op("pa");
+	}
 }
 
 void pb(t_stack **b, t_stack **a)
 {
-	if(push(b, a))
+	if (push(b, a))
+	{
 		write(1, "pb\n", 3);
+		count_op("pb");
+	}
 }
+

@@ -6,32 +6,11 @@
 /*   By: fguloglu <fguloglu@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/02 15:50:19 by fguloglu          #+#    #+#             */
-/*   Updated: 2026/09/02 17:33:28 by fguloglu         ###   ########.fr       */
+/*   Updated: 2026/09/02 17:58:19 by fguloglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	init_bench(t_bench *bench)
-{
-	if (!bench)
-		return ;
-	bench->sa = 0;
-	bench->sb = 0;
-	bench->ss = 0;
-	bench->pa = 0;
-	bench->pb = 0;
-	bench->ra = 0;
-	bench->rb = 0;
-	bench->rr = 0;
-	bench->rra = 0;
-	bench->rrb = 0;
-	bench->rrr = 0;
-	bench->total = 0;
-	bench->disorder = 0.0;
-	bench->strategy = NULL;
-	bench->complexity = NULL;
-}
 
 static void	putstr_err(char *s)
 {

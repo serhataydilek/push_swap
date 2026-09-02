@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_rotate.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saydilek <saydilek@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: fguloglu <fguloglu@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 06:37:22 by saydilek          #+#    #+#             */
-/*   Updated: 2026/08/31 06:56:28 by saydilek         ###   ########.fr       */
+/*   Updated: 2026/09/02 18:22:46 by fguloglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,20 @@ int rotate(t_stack **stack)
 
 void ra(t_stack **a)
 {
-	if(rotate(a))
+	if (rotate(a))
+	{
 		write(1, "ra\n", 3);
+		count_op("ra");
+	}
 }
 
 void rb(t_stack **b)
 {
-	if(rotate(b))
+	if (rotate(b))
+	{
 		write(1, "rb\n", 3);
+		count_op("rb");
+	}
 }
 
 void rr(t_stack **a, t_stack **b)
@@ -44,6 +50,9 @@ void rr(t_stack **a, t_stack **b)
 
 	x = rotate(a);
 	y = rotate(b);
-	if(x || y)
+	if (x || y)
+	{
 		write(1, "rr\n", 3);
+		count_op("rr");
+	}
 }

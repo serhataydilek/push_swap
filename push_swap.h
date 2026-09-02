@@ -6,7 +6,7 @@
 /*   By: fguloglu <fguloglu@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 03:04:07 by saydilek          #+#    #+#             */
-/*   Updated: 2026/09/02 17:14:15 by fguloglu         ###   ########.fr       */
+/*   Updated: 2026/09/02 18:15:20 by fguloglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,8 @@ void	error_exit(t_stack **stack, char **matrix);
 void	parse_args(int argc, char **argv, t_stack **a, int start);
 void	init_bench(t_bench *bench);
 void	print_benchmark(t_bench *bench);
+void	count_op(char *op);
+t_bench	*get_bench(t_bench *new_bench);
+
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saydilek <saydilek@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: fguloglu <fguloglu@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 03:23:33 by saydilek          #+#    #+#             */
-/*   Updated: 2026/08/31 06:54:59 by saydilek         ###   ########.fr       */
+/*   Updated: 2026/09/02 18:22:46 by fguloglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,20 @@ int swap(t_stack **stack)
 
 void sa(t_stack **a)
 {
-	if(swap(a))
+	if (swap(a))
+	{
 		write(1, "sa\n", 3);
+		count_op("sa");
+	}
 }
 
 void sb(t_stack **b)
 {
-	if(swap(b))
+	if (swap(b))
+	{
 		write(1, "sb\n", 3);
+		count_op("sb");
+	}
 }
 
 void ss(t_stack **a, t_stack **b)
@@ -46,6 +52,9 @@ void ss(t_stack **a, t_stack **b)
 
 	x = swap(a);
 	y = swap(b); 
-	if(x || y)
+	if (x || y)
+	{
 		write(1, "ss\n", 3);
+		count_op("ss");
+	}
 }

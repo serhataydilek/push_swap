@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_reverse_rotate.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saydilek <saydilek@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: fguloglu <fguloglu@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 06:40:16 by saydilek          #+#    #+#             */
-/*   Updated: 2026/08/31 06:47:44 by saydilek         ###   ########.fr       */
+/*   Updated: 2026/09/02 18:22:46 by fguloglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,20 @@ int reverse_rotate(t_stack **stack)
 
 void rra(t_stack **a)
 {
-	if(reverse_rotate(a))
+	if (reverse_rotate(a))
+	{
 		write(1, "rra\n", 4);
+		count_op("rra");
+	}
 }
 
 void rrb(t_stack **b)
 {
-	if(reverse_rotate(b))
+	if (reverse_rotate(b))
+	{
 		write(1, "rrb\n", 4);
+		count_op("rrb");
+	}
 }
 
 void rrr(t_stack **a, t_stack** b)
@@ -51,6 +57,9 @@ void rrr(t_stack **a, t_stack** b)
 
 	x = reverse_rotate(a);
 	y = reverse_rotate(b);
-	if(x || y)
+	if (x || y)
+	{
 		write(1, "rrr\n", 4);
+		count_op("rrr");
+	}
 }
