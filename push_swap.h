@@ -6,7 +6,7 @@
 /*   By: fguloglu <fguloglu@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 03:04:07 by saydilek          #+#    #+#             */
-/*   Updated: 2026/09/02 02:00:33 by fguloglu         ###   ########.fr       */
+/*   Updated: 2026/09/02 17:14:15 by fguloglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,25 @@ typedef struct s_stack
 	int				index;
 	struct s_stack	*next;
 }	t_stack;
+
+typedef struct t_bench
+{
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+	int	total;
+	double	disorder;
+	char	*strategy;
+	char	*complexity	;
+}	t_bench;
 
 int find_position(t_stack *stack, int target);
 void move_target_to_top(t_stack **stack, int target);
@@ -68,5 +87,7 @@ void	free_matrix(char **matrix);
 void	free_stack(t_stack **stack);
 void	error_exit(t_stack **stack, char **matrix);
 void	parse_args(int argc, char **argv, t_stack **a, int start);
+void	init_bench(t_bench *bench);
+void	print_benchmark(t_bench *bench);
 
 #endif
