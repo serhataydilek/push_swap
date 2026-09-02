@@ -42,6 +42,9 @@ double	compute_disorder(t_stack *stack)
 void	choose_strategy(t_stack **a, t_stack **b)
 {
 	double disorder;
+
+	if (is_sorted(*a))
+		return ;
 	disorder = compute_disorder(*a);
 	if (disorder < 0.2)
 		(simple_sort(a,b));

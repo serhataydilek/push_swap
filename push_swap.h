@@ -56,6 +56,7 @@ void rra(t_stack **a);
 int reverse_rotate(t_stack **stack);
 void sa(t_stack **a);
 void sb(t_stack **b);
+int is_sorted(t_stack *stack);
 void ss(t_stack **a, t_stack **b);
 double compute_disorder(t_stack* stack);
 void	choose_strategy(t_stack **a, t_stack **b);
