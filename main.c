@@ -1,41 +1,28 @@
 #include "push_swap.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_stack	*new;
-	int		values[100];
-	int		i;
+	int		strategy;
+	int		start;
 
-	int temp[100] = {
-		42, 7, 93, 15, 68, 2, 81, 34, 56, 99,
-		21, 73, 11, 64, 5, 88, 39, 27, 71, 50,
-		1, 97, 44, 18, 76, 32, 60, 9, 85, 24,
-		67, 13, 91, 48, 3, 79, 36, 54, 100, 20,
-		72, 10, 63, 6, 87, 38, 26, 70, 49, 17,
-		96, 43, 75, 31, 59, 8, 84, 23, 66, 12,
-		90, 47, 4, 78, 35, 53, 98, 19, 69, 28,
-		74, 14, 62, 86, 37, 25, 46, 16, 95, 30,
-		58, 83, 22, 65, 89, 45, 77, 33, 52, 94,
-		29, 57, 82, 41, 61, 92, 40, 55, 80, 51
-	};
-
-	i = 0;
-	while (i < 100)
-	{
-		values[i] = temp[i];
-		i++;
-	}
 	a = NULL;
 	b = NULL;
-	i = 0;
-	while (i < 100)
+	if (argc < 2)
+		return (0);
+	strategy = get_strategy(argv[1]);
+	if (strategy == -1)
 	{
-		new = ft_new_node(values[i]);
-		ft_add_back(&a, new);
-		i++;
+		strategy = 0;
+		start = 1;
 	}
-	radix_sort(&a, &b);
+	else
+		start = 2;
+	parse_args(argc, argv, &a, start);
+	if (!is_sorted(a))
+		run_strategy(&a, &b, strategy);
+	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }

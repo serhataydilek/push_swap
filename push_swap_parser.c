@@ -55,7 +55,7 @@ static void	check_duplicate(t_stack **stack, int number, char **matrix)
 	}
 }
 
-void	parse_args(int argc, char **argv, t_stack **a)
+void	parse_args(int argc, char **argv, t_stack **a, int start)
 {
 	int		i;
 	int		j;
@@ -63,8 +63,8 @@ void	parse_args(int argc, char **argv, t_stack **a)
 	int		num;
 	t_stack	*new_node;
 
-	i = 0;
-	while (++i < argc)
+	i = start;
+	while (i < argc)
 	{
 		matrix = ft_split(argv[i], ' ');
 		if (!matrix || !matrix[0])
@@ -81,5 +81,6 @@ void	parse_args(int argc, char **argv, t_stack **a)
 			j++;
 		}
 		free_matrix(matrix);
+		i++;
 	}
 }

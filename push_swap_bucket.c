@@ -24,29 +24,29 @@ int get_chunk_size(int size)
 
 void	bucket_pass(t_stack **a, t_stack **b, int base, int divisor)
 {
-    int bucket;
-    int size;
-    int i;
+	int	bucket;
+	int	size;
+	int	i;
+	int	match;
 
-    bucket = 0;
-    while(bucket < base)
-    {
-        size = ft_lstsize(*a);
-        i = 0;
-        while(i < size)
-        {
-            if(bucket == ((*a)->index / divisor) % base)
-                pb(b, a);
-            else
-                ra(a);
-            i++;
-        }
-        bucket++;
-    }
-    while(*b)
-    {
-        pa(a, b);
-    }
+	bucket = 0;
+	while (bucket < base - 1)
+	{
+		size = ft_lstsize(*a);
+		i = 0;
+		while (i < size)
+		{
+			match = (((*a)->index / divisor) % base == bucket);
+			if (match && !(bucket == base - 2 && i == size - 1))
+				pb(b, a);
+			else if (!match)
+				ra(a);
+			i++;
+		}
+		bucket++;
+	}
+	while (*b)
+		pa(a, b);
 }
 
 void	medium_sort(t_stack **a, t_stack **b)
@@ -60,5 +60,6 @@ void	medium_sort(t_stack **a, t_stack **b)
 		return ;
 	base = get_chunk_size(size);
 	bucket_pass(a, b, base, 1);
-	bucket_pass(a, b, base, base);
+	if (!is_sorted(*a))
+		bucket_pass(a, b, base, base);
 }

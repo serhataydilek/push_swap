@@ -103,3 +103,42 @@ int is_sorted(t_stack *stack)
 	}
 	return 1;
 }
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (s1[i] - s2[i]);
+}
+
+int	get_strategy(char *arg)
+{
+	if (ft_strcmp(arg, "--adaptive") == 0)
+		return (0);
+	if (ft_strcmp(arg, "--simple") == 0)
+		return (1);
+	if (ft_strcmp(arg, "--medium") == 0)
+		return (2);
+	if (ft_strcmp(arg, "--complex") == 0)
+		return (3);
+	return (-1);
+}
+
+void	run_strategy(t_stack **a, t_stack **b, int strategy)
+{
+	if (strategy == 1)
+		simple_sort(a, b);
+	else if (strategy == 2)
+		medium_sort(a, b);
+	else if (strategy == 3)
+		radix_sort(a, b);
+	else
+		choose_strategy(a, b);
+}

@@ -27,41 +27,47 @@ int find_position(t_stack *stack, int target)
     return -1;
 }
 
-void move_target_to_top(t_stack **stack, int target)
+void	move_target_to_top(t_stack **stack, int target)
 {
-    int position;
-    int size;
+	int	position;
+	int	size;
 
-    position = find_position(*stack, target);
-    size = ft_lstsize(*stack);
-
-    if(position <= size/2)
-    {
-        while((*stack)->index != target)
-            ra(stack);
-    }
-    else{
-        while((*stack)->index != target)
-            rra(stack);
-    }
+	position = find_position(*stack, target);
+	size = ft_lstsize(*stack);
+	if (position <= 0)
+		return ;
+	if (position == 1)
+		sa(stack);
+	else if (position <= size / 2)
+	{
+		while ((*stack)->index != target)
+			ra(stack);
+	}
+	else
+	{
+		while ((*stack)->index != target)
+			rra(stack);
+	}
 }
 
-void simple_sort(t_stack **a, t_stack **b)
+void	simple_sort(t_stack **a, t_stack **b)
 {
-    int target;
-    int size;
-    assign_indexes(*a);
+	int	target;
+	int	size;
 
-    size = ft_lstsize(*a);
-    target = 0;
-    while(target < size)
-    {
-        move_target_to_top(a, target);
-        pb(b, a);
-        target++;
-    }
-    while(*b)
-    {
-        pa(a,b);
-    }
+	assign_indexes(*a);
+	size = ft_lstsize(*a);
+	target = 0;
+	while (target < size - 1)
+	{
+		if (is_sorted(*a))
+			break ;
+		move_target_to_top(a, target);
+		if (is_sorted(*a))
+			break ;
+		pb(b, a);
+		target++;
+	}
+	while (*b)
+		pa(a, b);
 }

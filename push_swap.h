@@ -28,7 +28,6 @@ typedef struct s_stack
 int find_position(t_stack *stack, int target);
 void move_target_to_top(t_stack **stack, int target);
 void simple_sort(t_stack **a, t_stack **b);
-void	parse_args(int argc, char **argv, t_stack **a);
 int		get_chunk_size(int size);
 void	bucket_pass(t_stack **a, t_stack **b, int base, int divisor);
 void	medium_sort(t_stack **a, t_stack **b);
@@ -57,6 +56,9 @@ int reverse_rotate(t_stack **stack);
 void sa(t_stack **a);
 void sb(t_stack **b);
 int is_sorted(t_stack *stack);
+int		ft_strcmp(char *s1, char *s2);
+int		get_strategy(char *arg);
+void	run_strategy(t_stack **a, t_stack **b, int strategy);
 void ss(t_stack **a, t_stack **b);
 double compute_disorder(t_stack* stack);
 void	choose_strategy(t_stack **a, t_stack **b);
@@ -65,6 +67,6 @@ char	**ft_split(char const *s, char c); //Benim eklediklerim
 void	free_matrix(char **matrix);
 void	free_stack(t_stack **stack);
 void	error_exit(t_stack **stack, char **matrix);
-void	parse_args(int argc, char **argv, t_stack **a);
+void	parse_args(int argc, char **argv, t_stack **a, int start);
 
 #endif

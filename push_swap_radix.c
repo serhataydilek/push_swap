@@ -56,34 +56,57 @@ int get_max_bits(t_stack *stack)
 	return bits;
 }
 
-void	radix_pass(t_stack **a, t_stack **b, int bit)
+static int	count_ones(t_stack *stack, int bit)
 {
-	int size;
-	int i;
+	int	count;
 
-	size = ft_lstsize(*a);
-	i = 0;
-	while(i < size)
+	count = 0;
+	while (stack)
 	{
-		if((((*a)->index >> bit) & 1) == 0)
-			pb(b, a);
-		else
-			ra(a);
-		i++;
+		if (((stack->index >> bit) & 1) == 1)
+			count++;
+		stack = stack->next;
 	}
-	while(*b)
-		pa(a,b);
+	return (count);
 }
 
-void radix_sort(t_stack **a, t_stack **b)
+void	radix_pass(t_stack **a, t_stack **b, int bit)
 {
-	int bit;
-	int max_bit;
+	int	size;
+	int	ones;
+	int	ones_done;
+	int	i;
+
+	size = ft_lstsize(*a);
+	ones = count_ones(*a, bit);
+	if (ones == 0 || ones == size)
+		return ;
+	ones_done = 0;
+	i = 0;
+	while (i < size && ones_done < ones)
+	{
+		if ((((*a)->index >> bit) & 1) == 0)
+			pb(b, a);
+		else
+		{
+			ra(a);
+			ones_done++;
+		}
+		i++;
+	}
+	while (*b)
+		pa(a, b);
+}
+
+void	radix_sort(t_stack **a, t_stack **b)
+{
+	int	bit;
+	int	max_bit;
 
 	assign_indexes(*a);
 	max_bit = get_max_bits(*a);
 	bit = 0;
-	while(bit < max_bit)
+	while (bit < max_bit && !is_sorted(*a))
 	{
 		radix_pass(a, b, bit);
 		bit++;
