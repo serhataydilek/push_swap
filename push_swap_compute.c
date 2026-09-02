@@ -39,15 +39,14 @@ double	compute_disorder(t_stack *stack)
 	return (error / total);
 }
 
-// void	choose_strategy(t_stack *stack)
-// {
-// 	double x;
-// 	x = compute_disorder(stack);
-// 	if (x < 0.2)
-// 		(ft_low(stack));
-// 	else if (x < 0.5)
-// 		(ft_medium(stack));
-// 	else
-// 		(ft_high(stack));
-// 	return ; // can be deleted
-// }
+void	choose_strategy(t_stack **a, t_stack **b)
+{
+	double disorder;
+	disorder = compute_disorder(*a);
+	if (disorder < 0.2)
+		(simple_sort(a,b));
+	else if (disorder < 0.5)
+		(medium_sort(a,b));
+	else
+		(radix_sort(a,b));
+}

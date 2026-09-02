@@ -12,6 +12,31 @@
 
 #include "push_swap.h"
 
+static void	ft_putnbr(long long n)
+{
+	char	c;
+
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n = -n;
+	}
+	if (n >= 10)
+		ft_putnbr(n / 10);
+	c = (n % 10) + '0';
+	write(1, &c, 1);
+}
+
+void	print_stack(t_stack *stack)
+{
+	while (stack)
+	{
+		ft_putnbr(stack->value);
+		write(1, "\n", 1);
+		stack = stack->next;
+	}
+}
+
 t_stack	*ft_new_node(int value)
 {
 	t_stack	*node;
@@ -66,16 +91,4 @@ int ft_lstsize(t_stack *stack)
 		i++;
 	}
 	return i;
-}
-
-void print_stack(t_stack *stack)
-{
-	char c;
-	while(stack)
-	{
-		c = stack->value + '0';
-		write(1, &c, 1);
-		write(1, "\n", 1);
-		stack = stack->next;
-	}
 }

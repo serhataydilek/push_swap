@@ -25,6 +25,13 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+int find_position(t_stack *stack, int target);
+void move_target_to_top(t_stack **stack, int target);
+void simple_sort(t_stack **a, t_stack **b);
+void	parse_args(int argc, char **argv, t_stack **a);
+int		get_chunk_size(int size);
+void	bucket_pass(t_stack **a, t_stack **b, int base, int divisor);
+void	medium_sort(t_stack **a, t_stack **b);
 void assign_indexes(t_stack *stack);
 int get_max_bits(t_stack *stack);
 void	radix_pass(t_stack **a, t_stack **b, int bit);
@@ -51,6 +58,7 @@ void sa(t_stack **a);
 void sb(t_stack **b);
 void ss(t_stack **a, t_stack **b);
 double compute_disorder(t_stack* stack);
+void	choose_strategy(t_stack **a, t_stack **b);
 void assign_indexes(t_stack *stack);
 char	**ft_split(char const *s, char c); //Benim eklediklerim
 void	free_matrix(char **matrix);

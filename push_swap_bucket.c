@@ -22,80 +22,43 @@ int get_chunk_size(int size)
     return chunk;
 }
 
-void push_chunk(t_stack **a, t_stack **b, int start, int end)
+void	bucket_pass(t_stack **a, t_stack **b, int base, int divisor)
 {
-    int target;
-    int pushed;
+    int bucket;
+    int size;
+    int i;
 
-    target = end - start + 1;
-    pushed = 0;
-    while(pushed < target)
+    bucket = 0;
+    while(bucket < base)
     {
-        if((*a)->index >= start && (*a)->index <= end)
+        size = ft_lstsize(*a);
+        i = 0;
+        while(i < size)
         {
-            pb(b,a);
-            pushed++;
+            if(bucket == ((*a)->index / divisor) % base)
+                pb(b, a);
+            else
+                ra(a);
+            i++;
         }
-        else
-            ra(a);
+        bucket++;
+    }
+    while(*b)
+    {
+        pa(a, b);
     }
 }
 
 void	medium_sort(t_stack **a, t_stack **b)
 {
 	int	size;
-	int	chunk_size;
-	int	start;
-	int	end;
+	int	base;
 
 	assign_indexes(*a);
 	size = ft_lstsize(*a);
-	chunk_size = get_chunk_size(size);
-	start = 0;
-	end = chunk_size - 1;
-	while (start < size)
-	{
-		if (end >= size)
-			end = size - 1;
-		push_chunk(a, b, start, end);
-		start = end + 1;
-		end = start + chunk_size - 1;
-	}
-}
-
-int find_position(t_stack *stack, int target)
-{
-    int position;
-
-    position = 0;
-    while(stack)
-    {
-        if(stack->index == target)
-            return position;
-        position++;
-        stack = stack->next;
-    }
-    return -1;
-}
-
-void	move_target_to_top(t_stack **b, int target)
-{
-    int position;
-    int size;
-
-    position = find_position(*b, target);
-    size = ft_lstsize(*b);
-
-    if (position == -1)
-	    return ;
-    if (position <= size / 2)
-    {
-	    while ((*b)->index != target)
-		    rb(b);
-    }
-    else
-    {
-	    while ((*b)->index != target)
-		    rrb(b);
-    }
+	if (size < 2)
+		return ;
+	base = get_chunk_size(size);
+	bucket_pass(a, b, base, 1);
+	bucket_pass(a, b, base, base);
 }
