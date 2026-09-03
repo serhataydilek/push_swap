@@ -41,18 +41,17 @@ static void	putnbr_err(long n)
 
 static void	putdouble_err(double d)
 {
-	int	int_part;
-	int	dec_part;
+	int	value;
+	int	decimal;
 
-	int_part = (int)d;
-	dec_part = (int)((d - int_part) * 100);
-	if (dec_part < 0)
-		dec_part = -dec_part;
-	putnbr_err(int_part);
+	value = (int)(d * 10000 + 0.5);
+	putnbr_err(value / 100);
 	write(2, ".", 1);
-	if (dec_part < 10)
+	decimal = value % 100;
+	if (decimal < 10)
 		write(2, "0", 1);
-	putnbr_err(dec_part);
+	putnbr_err(decimal);
+	write(2, "%", 1);
 }
 
 static void	print_ops(t_bench *b)

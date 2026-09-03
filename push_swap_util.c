@@ -54,16 +54,16 @@ void	ft_add_back(t_stack **stack, t_stack *new)
 {
 	t_stack	*tmp;
 
-	if (!*stack || !new)
+	if (!stack || !new)
+		return ;
+	if (!*stack)
 	{
 		*stack = new;
 		return ;
 	}
 	tmp = *stack;
 	while (tmp->next)
-	{
-		tmp = (tmp)->next;
-	}
+		tmp = tmp->next;
 	tmp->next = new;
 }
 
