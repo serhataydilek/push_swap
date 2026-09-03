@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-#include "push_swap.h"
-
 static int	ft_get_sign(const char *str, int *i)
 {
 	int	sign;

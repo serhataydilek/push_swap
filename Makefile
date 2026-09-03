@@ -3,21 +3,22 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = main.c \
-	push_swap_benchmark.c \
-	push_swap_bucket.c \
-	push_swap_compute.c \
-	push_swap_counter.c \
-	push_swap_free.c \
-	push_swap_parser.c \
-	push_swap_push.c \
-	push_swap_radix.c \
-	push_swap_reverse_rotate.c \
-	push_swap_rotate.c \
-	push_swap_selection.c \
-	push_swap_split.c \
-	push_swap_swap.c \
-	push_swap_util.c
+SRCS = push_swap.c \
+	benchmark.c \
+	benchmark_counter.c \
+	free.c \
+	operations_push.c \
+	operations_reverse.c \
+	operations_rotate.c \
+	operations_swap.c \
+	parse.c \
+	sort_adaptive.c \
+	sort_medium.c \
+	sort_radix.c \
+	sort_simple.c \
+	split.c \
+	stack_utils.c \
+	strategy.c
 
 OBJS = $(SRCS:.c=.o)
 
