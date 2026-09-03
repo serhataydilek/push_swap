@@ -31,6 +31,8 @@ static int	ft_setup(int argc, char **argv, t_stack **a, int *bench_mode)
 		strategy = 0;
 	else
 		start++;
+	if (start == argc)
+		ft_error_exit(a, NULL);
 	ft_parse_args(argc, argv, a, start);
 	return (strategy);
 }

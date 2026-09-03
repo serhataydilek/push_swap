@@ -4,3 +4,5 @@ bench.txt
 .vscode/
 git_diff.txt
 scripts.ps1
+!README.md
+stress_test.py

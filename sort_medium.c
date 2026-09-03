@@ -53,13 +53,19 @@ void	ft_medium_sort(t_stack **a, t_stack **b)
 {
 	int	size;
 	int	base;
+	int	divisor;
 
 	ft_assign_indexes(*a);
 	size = ft_lstsize(*a);
 	if (size < 2)
 		return ;
-	base = ft_chunk_size(size);
-	ft_bucket_pass(a, b, base, 1);
-	if (!ft_is_sorted(*a))
-		ft_bucket_pass(a, b, base, base);
+	base = ft_chunk_size(size) / 4;
+	if (base < 2)
+		base = 2;
+	divisor = 1;
+	while (divisor < size)
+	{
+		ft_bucket_pass(a, b, base, divisor);
+		divisor *= base;
+	}
 }
