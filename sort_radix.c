@@ -12,21 +12,20 @@
 
 #include "push_swap.h"
 
-void assign_indexes(t_stack *stack)
+void	ft_assign_indexes(t_stack *stack)
 {
-	t_stack *x;
-	t_stack *y;
-	int index;
+	t_stack	*x;
+	t_stack	*y;
+	int		index;
 
 	x = stack;
-	index = 0;
-	while(x)
+	while (x)
 	{
 		y = stack;
 		index = 0;
-		while(y)
+		while (y)
 		{
-			if(x->value >  y->value)
+			if (x->value > y->value)
 				index++;
 			y = y->next;
 		}
@@ -35,28 +34,28 @@ void assign_indexes(t_stack *stack)
 	}
 }
 
-int get_max_bits(t_stack *stack)
+int	ft_max_bits(t_stack *stack)
 {
-	int max;
-	int bits;
+	int	max;
+	int	bits;
 
 	max = 0;
 	bits = 0;
 	while (stack)
 	{
-		if(stack->index > max)
+		if (stack->index > max)
 			max = stack->index;
 		stack = stack->next;
 	}
-	while(max != 0)
+	while (max != 0)
 	{
 		max = max >> 1;
 		bits++;
 	}
-	return bits;
+	return (bits);
 }
 
-static int	count_ones(t_stack *stack, int bit)
+static int	ft_count_ones(t_stack *stack, int bit)
 {
 	int	count;
 
@@ -70,7 +69,7 @@ static int	count_ones(t_stack *stack, int bit)
 	return (count);
 }
 
-void	radix_pass(t_stack **a, t_stack **b, int bit)
+void	ft_radix_pass(t_stack **a, t_stack **b, int bit)
 {
 	int	size;
 	int	ones;
@@ -78,7 +77,7 @@ void	radix_pass(t_stack **a, t_stack **b, int bit)
 	int	i;
 
 	size = ft_lstsize(*a);
-	ones = count_ones(*a, bit);
+	ones = ft_count_ones(*a, bit);
 	if (ones == 0 || ones == size)
 		return ;
 	ones_done = 0;
@@ -98,17 +97,17 @@ void	radix_pass(t_stack **a, t_stack **b, int bit)
 		pa(a, b);
 }
 
-void	radix_sort(t_stack **a, t_stack **b)
+void	ft_radix_sort(t_stack **a, t_stack **b)
 {
 	int	bit;
 	int	max_bit;
 
-	assign_indexes(*a);
-	max_bit = get_max_bits(*a);
+	ft_assign_indexes(*a);
+	max_bit = ft_max_bits(*a);
 	bit = 0;
-	while (bit < max_bit && !is_sorted(*a))
+	while (bit < max_bit && !ft_is_sorted(*a))
 	{
-		radix_pass(a, b, bit);
+		ft_radix_pass(a, b, bit);
 		bit++;
 	}
 }

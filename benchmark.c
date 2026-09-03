@@ -82,7 +82,7 @@ static void	print_ops(t_bench *b)
 	putstr_err("\n========================\n");
 }
 
-void	print_benchmark(t_bench *bench)
+void	ft_print_bench(t_bench *bench)
 {
 	if (!bench)
 		return ;

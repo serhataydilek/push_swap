@@ -12,17 +12,17 @@
 
 #include "push_swap.h"
 
-int get_chunk_size(int size)
+int	ft_chunk_size(int size)
 {
-    int chunk;
+	int	chunk;
 
-    chunk = 1;
-    while(chunk * chunk < size)
-        chunk++;
-    return chunk;
+	chunk = 1;
+	while (chunk * chunk < size)
+		chunk++;
+	return (chunk);
 }
 
-void	bucket_pass(t_stack **a, t_stack **b, int base, int divisor)
+void	ft_bucket_pass(t_stack **a, t_stack **b, int base, int divisor)
 {
 	int	bucket;
 	int	size;
@@ -49,17 +49,17 @@ void	bucket_pass(t_stack **a, t_stack **b, int base, int divisor)
 		pa(a, b);
 }
 
-void	medium_sort(t_stack **a, t_stack **b)
+void	ft_medium_sort(t_stack **a, t_stack **b)
 {
 	int	size;
 	int	base;
 
-	assign_indexes(*a);
+	ft_assign_indexes(*a);
 	size = ft_lstsize(*a);
 	if (size < 2)
 		return ;
-	base = get_chunk_size(size);
-	bucket_pass(a, b, base, 1);
-	if (!is_sorted(*a))
-		bucket_pass(a, b, base, base);
+	base = ft_chunk_size(size);
+	ft_bucket_pass(a, b, base, 1);
+	if (!ft_is_sorted(*a))
+		ft_bucket_pass(a, b, base, base);
 }

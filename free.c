@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	free_matrix(char **matrix)
+void	ft_free_matrix(char **matrix)
 {
 	size_t	i;
 
@@ -27,7 +27,7 @@ void	free_matrix(char **matrix)
 	free(matrix);
 }
 
-void	free_stack(t_stack **stack)
+void	ft_free_stack(t_stack **stack)
 {
 	t_stack	*tmp;
 
@@ -41,10 +41,10 @@ void	free_stack(t_stack **stack)
 	}
 }
 
-void	error_exit(t_stack **stack, char **matrix)
+void	ft_error_exit(t_stack **stack, char **matrix)
 {
-	free_stack(stack);
-	free_matrix(matrix);
+	ft_free_stack(stack);
+	ft_free_matrix(matrix);
 	write(2, "Error\n", 6);
 	exit(1);
 }

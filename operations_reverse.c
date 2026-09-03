@@ -1,60 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_swap.c                                   :+:      :+:    :+:   */
+/*   push_swap_reverse_rotate.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fguloglu <fguloglu@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/31 03:23:33 by saydilek          #+#    #+#             */
+/*   Created: 2026/08/31 06:40:16 by saydilek          #+#    #+#             */
 /*   Updated: 2026/09/02 18:22:46 by fguloglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int swap(t_stack **stack)
+int	ft_rev_rotate(t_stack **stack)
 {
-	t_stack *first;
-	t_stack *second;
-	
-	if(!stack || !*stack || !(*stack)->next)//look at this
+	t_stack	*last;
+	t_stack	*prev;
+
+	if (!stack || !*stack || !(*stack)->next)
 		return (0);
-	first = *stack;
-	second = first->next;
-	first->next = second->next;
-	second->next = first;
-	*stack = second;
+	last = *stack;
+	prev = NULL;
+	while (last->next)
+	{
+		prev = last;
+		last = last->next;
+	}
+	prev->next = NULL;
+	last->next = *stack;
+	*stack = last;
 	return (1);
 }
 
-void sa(t_stack **a)
+void	rra(t_stack **a)
 {
-	if (swap(a))
+	if (ft_rev_rotate(a))
 	{
-		write(1, "sa\n", 3);
-		count_op("sa");
+		write(1, "rra\n", 4);
+		ft_count_op("rra");
 	}
 }
 
-void sb(t_stack **b)
+void	rrb(t_stack **b)
 {
-	if (swap(b))
+	if (ft_rev_rotate(b))
 	{
-		write(1, "sb\n", 3);
-		count_op("sb");
+		write(1, "rrb\n", 4);
+		ft_count_op("rrb");
 	}
 }
 
-void ss(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
-	x = swap(a);
-	y = swap(b); 
+	x = ft_rev_rotate(a);
+	y = ft_rev_rotate(b);
 	if (x || y)
 	{
-		write(1, "ss\n", 3);
-		count_op("ss");
+		write(1, "rrr\n", 4);
+		ft_count_op("rrr");
 	}
 }

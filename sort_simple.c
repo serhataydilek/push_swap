@@ -12,27 +12,27 @@
 
 #include "push_swap.h"
 
-int find_position(t_stack *stack, int target)
+int	ft_find_position(t_stack *stack, int target)
 {
-    int position;
+	int	position;
 
-    position = 0;
-    while(stack)
-    {
-        if(stack->index == target)
-            return position;
-        position++;
-        stack = stack->next;
-    }
-    return -1;
+	position = 0;
+	while (stack)
+	{
+		if (stack->index == target)
+			return (position);
+		position++;
+		stack = stack->next;
+	}
+	return (-1);
 }
 
-void	move_target_to_top(t_stack **stack, int target)
+void	ft_move_to_top(t_stack **stack, int target)
 {
 	int	position;
 	int	size;
 
-	position = find_position(*stack, target);
+	position = ft_find_position(*stack, target);
 	size = ft_lstsize(*stack);
 	if (position <= 0)
 		return ;
@@ -50,20 +50,20 @@ void	move_target_to_top(t_stack **stack, int target)
 	}
 }
 
-void	simple_sort(t_stack **a, t_stack **b)
+void	ft_simple_sort(t_stack **a, t_stack **b)
 {
 	int	target;
 	int	size;
 
-	assign_indexes(*a);
+	ft_assign_indexes(*a);
 	size = ft_lstsize(*a);
 	target = 0;
 	while (target < size - 1)
 	{
-		if (is_sorted(*a))
+		if (ft_is_sorted(*a))
 			break ;
-		move_target_to_top(a, target);
-		if (is_sorted(*a))
+		ft_move_to_top(a, target);
+		if (ft_is_sorted(*a))
 			break ;
 		pb(b, a);
 		target++;

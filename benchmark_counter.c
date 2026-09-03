@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	init_bench(t_bench *bench)
+void	ft_init_bench(t_bench *bench)
 {
 	if (!bench)
 		return ;
@@ -33,7 +33,7 @@ void	init_bench(t_bench *bench)
 	bench->complexity = NULL;
 }
 
-t_bench	*get_bench(t_bench *new_bench)
+t_bench	*ft_get_bench(t_bench *new_bench)
 {
 	static t_bench	*bench = NULL;
 
@@ -58,11 +58,11 @@ static void	count_rotate_op(t_bench *b, char *op)
 		b->rrr++;
 }
 
-void	count_op(char *op)
+void	ft_count_op(char *op)
 {
 	t_bench	*b;
 
-	b = get_bench(NULL);
+	b = ft_get_bench(NULL);
 	if (!b || !op)
 		return ;
 	if (ft_strcmp(op, "sa") == 0)

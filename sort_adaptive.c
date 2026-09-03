@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-double	compute_disorder(t_stack *stack)
+double	ft_disorder(t_stack *stack)
 {
 	t_stack	*x;
 	t_stack	*y;
@@ -39,17 +39,17 @@ double	compute_disorder(t_stack *stack)
 	return (error / total);
 }
 
-void	choose_strategy(t_stack **a, t_stack **b)
+void	ft_choose_strategy(t_stack **a, t_stack **b)
 {
-	double disorder;
+	double	disorder;
 
-	if (is_sorted(*a))
+	if (ft_is_sorted(*a))
 		return ;
-	disorder = compute_disorder(*a);
+	disorder = ft_disorder(*a);
 	if (disorder < 0.2)
-		(simple_sort(a,b));
+		ft_simple_sort(a, b);
 	else if (disorder < 0.5)
-		(medium_sort(a,b));
+		ft_medium_sort(a, b);
 	else
-		(radix_sort(a,b));
+		ft_radix_sort(a, b);
 }

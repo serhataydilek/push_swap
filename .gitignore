@@ -1,1 +1,6 @@
 *.md
+push_swap.exe
+bench.txt
+.vscode/
+git_diff.txt
+scripts.ps1

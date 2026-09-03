@@ -12,13 +12,12 @@
 
 #include "push_swap.h"
 
-int push(t_stack **dest, t_stack **src)
+int	ft_push(t_stack **dest, t_stack **src)
 {
-	t_stack* tmp;
+	t_stack	*tmp;
 
 	if (!dest || !src || !*src)
 		return (0);
-	
 	tmp = *src;
 	*src = (*src)->next;
 	tmp->next = NULL;
@@ -26,21 +25,20 @@ int push(t_stack **dest, t_stack **src)
 	return (1);
 }
 
-void pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b)
 {
-	if (push(a, b))
+	if (ft_push(a, b))
 	{
 		write(1, "pa\n", 3);
-		count_op("pa");
+		ft_count_op("pa");
 	}
 }
 
-void pb(t_stack **b, t_stack **a)
+void	pb(t_stack **b, t_stack **a)
 {
-	if (push(b, a))
+	if (ft_push(b, a))
 	{
 		write(1, "pb\n", 3);
-		count_op("pb");
+		ft_count_op("pb");
 	}
 }
-

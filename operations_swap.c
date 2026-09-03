@@ -1,58 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_rotate.c                                 :+:      :+:    :+:   */
+/*   push_swap_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fguloglu <fguloglu@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/31 06:37:22 by saydilek          #+#    #+#             */
+/*   Created: 2026/08/31 03:23:33 by saydilek          #+#    #+#             */
 /*   Updated: 2026/09/02 18:22:46 by fguloglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int rotate(t_stack **stack)
+int	ft_swap(t_stack **stack)
 {
-	t_stack *tmp;
-	
+	t_stack	*first;
+	t_stack	*second;
+
 	if (!stack || !*stack || !(*stack)->next)
 		return (0);
-	tmp = *stack;
-	*stack = (*stack)->next;
-	tmp->next = NULL;
-	ft_add_back(stack,tmp);
+	first = *stack;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	*stack = second;
 	return (1);
 }
 
-void ra(t_stack **a)
+void	sa(t_stack **a)
 {
-	if (rotate(a))
+	if (ft_swap(a))
 	{
-		write(1, "ra\n", 3);
-		count_op("ra");
+		write(1, "sa\n", 3);
+		ft_count_op("sa");
 	}
 }
 
-void rb(t_stack **b)
+void	sb(t_stack **b)
 {
-	if (rotate(b))
+	if (ft_swap(b))
 	{
-		write(1, "rb\n", 3);
-		count_op("rb");
+		write(1, "sb\n", 3);
+		ft_count_op("sb");
 	}
 }
 
-void rr(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
-	x = rotate(a);
-	y = rotate(b);
+	x = ft_swap(a);
+	y = ft_swap(b);
 	if (x || y)
 	{
-		write(1, "rr\n", 3);
-		count_op("rr");
+		write(1, "ss\n", 3);
+		ft_count_op("ss");
 	}
 }
