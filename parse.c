@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_parser.c                                 :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fguloglu <fguloglu@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 17:57:57 by fguloglu          #+#    #+#             */
-/*   Updated: 2026/09/02 17:13:14 by fguloglu         ###   ########.fr       */
+/*   Updated: 2026/09/03 15:24:56 by fguloglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_get_sign(const char *str, int *i)
 	return (sign);
 }
 
-static int	ft_atoi(const char *str, t_stack **stack, char **matrix)
+static int	ft_atol(const char *str, t_stack **stack, char **matrix)
 {
 	int			i;
 	int			sign;
@@ -78,7 +78,7 @@ static void	ft_add_values(char **matrix, t_stack **a)
 	i = 0;
 	while (matrix[i])
 	{
-		num = ft_atoi(matrix[i], a, matrix);
+		num = ft_atol(matrix[i], a, matrix);
 		ft_check_duplicate(a, num, matrix);
 		node = ft_new_node(num);
 		if (!node)
